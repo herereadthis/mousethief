@@ -29,6 +29,10 @@ angular
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
+            .when('/human-time', {
+                templateUrl: 'scripts/components/humantime/human-time-view.html',
+                controller: 'HumanTimeController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
