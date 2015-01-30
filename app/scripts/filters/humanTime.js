@@ -1,8 +1,8 @@
 'use strict';
 
-var humanTimeModule = angular.module('atellis.shared.humanTimeModule', []);
+var humanTimeFilter = angular.module('humanTimeFilter', []);
 
-humanTimeModule.filter('humanTime', function () {
+humanTimeFilter.filter('humanTime', function () {
     // localization!
     var currentDateTime, i18nTime, words, getWords, setLanguage;
 

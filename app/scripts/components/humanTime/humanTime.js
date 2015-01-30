@@ -19,6 +19,7 @@ angular.module('mousethiefApp')
             'AngularJS',
             'Karma'
         ];
+        $scope.timeStamp = '2015-01-15T16:01:03.700Z';
     }])
     .directive('humanTime', function() {
         return {

@@ -17,7 +17,8 @@ angular
         'ngResource',
         'ngRoute',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+        'humanTimeFilter'
     ])
     .config(function ($routeProvider) {
         $routeProvider
