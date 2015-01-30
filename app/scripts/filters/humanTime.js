@@ -149,5 +149,5 @@ humanTimeFilter.filter('humanTime', function () {
             timePhrase = Math.floor(secondsDist / wordObj.divider) + ' ' + wordObj.phrase;
         }
         return timePhrase;
-    }
+    };
 });
