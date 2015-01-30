@@ -1,9 +1,6 @@
-BRAINS BRAINS!
+<h1>humanTime Filter Demo</h1>
 
 <ul>
-    <li ng-repeat="entry in customer">
-        <pre>{{ entry | json }}</pre>
-    </li>
+    <li ng-repeat="time in timeStamp">TimeStamp: <strong>{{ time }}</strong><br />
+        humanTime filter: <strong>{{ time | humanTime }}</strong></li>
 </ul>
-<p>{{ timeStamp }}</p>
-<p>{{ '2015-01-15T16:01:03.700Z' | humanTime }}</p>

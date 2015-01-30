@@ -19,7 +19,7 @@ angular.module('mousethiefApp')
             'AngularJS',
             'Karma'
         ];
-        $scope.timeStamp = '2015-01-15T16:01:03.700Z';
+        $scope.timeStamp = '2015-01-29T16:01:03.700Z';
     }])
     .directive('humanTime', function() {
         return {
@@ -31,6 +31,13 @@ angular.module('mousethiefApp')
                 // e.g., <foo-bar customer-info="naomi" />
                 customerInfo: '='
             },
+            controller: ['$scope', function($scope) {
+                $scope.timeStamp = [
+                    '2015-01-29T23:01:03.700Z',
+                    '2015-01-14T23:01:03.700Z',
+                    '2014-12-29T23:01:03.700Z'
+                ];
+            }],
             templateUrl: '/scripts/components/humanTime/humanTime.html'
         };
     });
