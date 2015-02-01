@@ -47,46 +47,57 @@ humanTimeFilter.filter('humanTime', function () {
             divider: false
         },
         {
+            // 10 seconds
             minTime: 10,
             divider: 1
         },
         {
+            // 31 seconds
             minTime: 31,
             divider: false
         },
         {
+            // 1 minute, 31 seconds
             minTime: 91,
             divider: 60
         },
         {
+            // 45 minutes
             minTime: 2700,
             divider: false
         },
         {
+            // 1 hours, 31 ninutes
             minTime: 5460,
             divider: 3600
         },
         {
+            // 1 day (24 hours)
             minTime: 86400,
             divider: false
         },
         {
+            // 2 days (48 hours)
             minTime: 172800,
             divider: 86400
         },
         {
+            // 1 month (30 days)
             minTime: 2592000,
             divider: false
         },
         {
+            // 1 month, 15 days
             minTime: 3888000,
             divider: 2592000
         },
         {
+            // 1 year (365 days)
             minTime: 31536000,
             divider: false
         },
         {
+            // 52 + 26 weeks
             minTime: 47174400,
             divider: 31536000
         }
