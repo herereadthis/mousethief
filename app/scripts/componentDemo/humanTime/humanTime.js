@@ -38,6 +38,6 @@ angular.module('mousethiefApp')
                     '2014-12-29T23:01:03.700Z'
                 ];
             }],
-            templateUrl: '/scripts/components/humanTime/humanTime.html'
+            templateUrl: '/scripts/componentDemo/humanTime/humanTime.html'
         };
     });

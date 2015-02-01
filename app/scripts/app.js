@@ -31,7 +31,7 @@ angular
                 controller: 'AboutCtrl'
             })
             .when('/human-time', {
-                templateUrl: 'scripts/components/humantime/human-time-view.html',
+                templateUrl: 'scripts/componentDemo/humantime/human-time-view.html',
                 controller: 'HumanTimeController'
             })
             .otherwise({
