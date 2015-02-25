@@ -18,7 +18,8 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'humanTimeFilter'
+        'humanTimeFilter',
+        'unCamelFilter'
     ])
     .config(function ($routeProvider) {
         $routeProvider
