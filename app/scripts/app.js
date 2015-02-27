@@ -35,6 +35,10 @@ angular
                 templateUrl: 'scripts/componentDemo/humantime/human-time-view.html',
                 controller: 'HumanTimeController'
             })
+            .when('/uncamel', {
+                templateUrl: 'scripts/componentDemo/humantime/uncamel-view.html',
+                controller: 'unCamelController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
