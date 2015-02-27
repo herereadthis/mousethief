@@ -40,7 +40,7 @@
     "Gruntfile.js",
     "node_modules",
     "bower_components",
-    "app/.buildignore"
+    "app/.buildignore",
     "app/scripts/componentDemo",
     "app/scripts/controllers",
     "app/404.html",
