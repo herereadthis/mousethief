@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name yeomanAngularTestApp
+ * @name mousethiefApp
  * @description
- * # yeomanAngularTestApp
+ * # mousethiefApp
  *
  * Main module of the application.
  */
 angular
-  .module('yeomanAngularTestApp', [
+  .module('mousethiefApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
