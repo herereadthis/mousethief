@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name mousethiefApp.controller:MainCtrl
+ * @name yeomanAngularTestApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the mousethiefApp
+ * Controller of the yeomanAngularTestApp
  */
-angular.module('mousethiefApp')
-    .controller('MainCtrl', function ($scope) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
-    });
+angular.module('yeomanAngularTestApp')
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
+  });
