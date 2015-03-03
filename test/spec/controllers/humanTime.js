@@ -3,7 +3,7 @@
 describe('Controller: Human Time', function () {
 
   // load the controller's module
-  beforeEach(module('yeomanAngularTestApp'));
+  beforeEach(module('mousethiefApp'));
 
   var MainCtrl,
     scope;

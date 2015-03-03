@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('yeomanAngularTestApp')
+angular.module('mousethiefApp')
     .controller('HumanTimeController', ['$scope', function($scope) {
         $scope.customer = {
             name: 'Naomi',
