@@ -13,5 +13,5 @@ unCamelFilter.filter('unCamel', function() {
             return string.toUpperCase();
         });
         return titleString;
-    }
+    };
 });
