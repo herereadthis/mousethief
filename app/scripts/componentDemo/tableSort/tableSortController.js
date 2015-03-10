@@ -16,30 +16,80 @@ angular.module('mousethiefApp')
             'Zeta',
             'Eta'
         ];
-        var listSize = 5;
+        var studentClass = [
+            'Freshman',
+            'Sophomore',
+            'Junior',
+            'Senior',
+            'Freshman',
+            'Sophomore',
+            'Junior',
+            'Senior',
+            'Freshman',
+            'Sophomore',
+            'Junior',
+            'Senior',
+            'Graduate Program',
+            'Graduate Program',
+            'Graduate Program',
+            'Graduate Program',
+            'Doctoral Candidate',
+            'Post-Doctorate'
+        ];
+        var underGradDorms = [
+            'Smith Hall',
+            'Johnson Towers',
+            'Jones Hall',
+            'Mayfield Hall'
+        ];
+        var gradDorms = [
+            'Masters Building',
+            'Off Campus Housing'
+        ];
+        var postGradDorms = [
+            'Off Campus Housing'
+        ]
+        var listSize = 10;
         var _i;
 
         var randStr = function() {
-            return Math.random().toString(36).slice(-5);
+            return Math.random().toString(10).slice(-4);
         }
+        var weights = [
+        ];
+        window.console.log(weights);
         $scope.data = [];
         for (_i = 0; _i < listSize; _i = _i + 1) {
             var letter = _.random(0, nameTemplate.length - 1);
+            var year = _.random(0, studentClass.length - 1);
 
-            letter = nameTemplate[letter] + '_' + randStr();
-            $scope.namesArray = _.pluck($scope.data, 'name');
+            var dorm;
+            if (studentClass[year] === 'Graduate Program') {
+                dorm = gradDorms[_.random(0, gradDorms.length - 1)];
+            }
+            else if (studentClass[year] === 'Doctoral Candidate' || studentClass[year] === 'Post-Doctorate') {
+                dorm = postGradDorms[_.random(0, postGradDorms.length - 1)];
+            }
+            else {
+                dorm = underGradDorms[_.random(0, underGradDorms.length - 1)];
+            }
 
-            var uniqueNameSpot = $scope.namesArray.indexOf(letter);
+            letter = nameTemplate[letter] + '-' + randStr();
+            var namesArray = _.pluck($scope.data, 'name');
+
+            var uniqueNameSpot = namesArray.indexOf(letter);
 
             if (uniqueNameSpot === -1) {
                 while (uniqueNameSpot !== -1) {
                     letter = nameTemplate[letter] + '_' + randStr();
-                    uniqueNameSpot = $scope.namesArray.indexOf(letter);
+                    uniqueNameSpot = namesArray.indexOf(letter);
                 }
             }
             $scope.data[_i] = {
-                name: letter
-            }
+                userName: letter,
+                classYear: studentClass[year],
+                dorm: dorm
+            };
         }
     }]);
     
