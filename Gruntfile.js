@@ -33,6 +33,13 @@ module.exports = function (grunt) {
                 files: ['bower.json'],
                 tasks: ['wiredep']
             },
+            html: {
+                files: [
+                    '<%= yeoman.app %>/scripts/{,*/}*.html',
+                    '<%= yeoman.app %>/scripts/componentDemo/{,*/}*.html'
+                ],
+                tasks: ['newer:jshint:all']
+            },
             js: {
                 files: [
                     '<%= yeoman.app %>/scripts/{,*/}*.js',

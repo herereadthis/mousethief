@@ -34,6 +34,10 @@ angular
           templateUrl: 'scripts/componentDemo/humantime/human-time-view.html',
           controller: 'HumanTimeController'
       })
+      .when('/table-sort', {
+          templateUrl: 'scripts/componentDemo/tableSort/table-sort-view.html',
+          controller: 'TableSortController'
+      })
       .otherwise({
         redirectTo: '/'
       });
