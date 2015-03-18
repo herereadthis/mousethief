@@ -16,10 +16,6 @@ angular.module('mousethiefApp')
             'Zeta',
             'Eta'
         ];
-        var underGradmajors = [
-            'law',
-            ''
-        ];
         var majors = {
             undergrad: [
                 'biology',
@@ -45,26 +41,49 @@ angular.module('mousethiefApp')
                 'chemistry',
             ]
         }
-        var studentClass = [
-            'Freshman',
-            'Sophomore',
-            'Junior',
-            'Senior',
-            'Freshman',
-            'Sophomore',
-            'Junior',
-            'Senior',
-            'Freshman',
-            'Sophomore',
-            'Junior',
-            'Senior',
-            'Graduate Program',
-            'Graduate Program',
-            'Graduate Program',
-            'Graduate Program',
-            'Doctoral Candidate',
-            'Post-Doctorate'
-        ];
+        var studentClass = {
+            bias: [3, 3, 3, 3, 4, 1, 1],
+            name: [
+                'freshman',
+                'sophomore',
+                'junior',
+                'senior',
+                'graduate program',
+                'doctoral candicate',
+                'post-doctorate'
+            ],
+            weightSum: 0,
+            weightTotal: 0
+        };
+        var _n;
+
+        for (_n in studentClass.bias) {
+            studentClass.weightSum = studentClass.weightSum + studentClass.bias[_n];
+        }
+        for (_n in studentClass.bias) {
+            studentClass.bias[_n] = studentClass.bias[_n] / studentClass.weightSum;
+            studentClass.weightTotal = studentClass.weightTotal + studentClass.bias[_n];
+        }
+        // var studentClass = [
+        //     'Freshman',
+        //     'Sophomore',
+        //     'Junior',
+        //     'Senior',
+        //     'Freshman',
+        //     'Sophomore',
+        //     'Junior',
+        //     'Senior',
+        //     'Freshman',
+        //     'Sophomore',
+        //     'Junior',
+        //     'Senior',
+        //     'Graduate Program',
+        //     'Graduate Program',
+        //     'Graduate Program',
+        //     'Graduate Program',
+        //     'Doctoral Candidate',
+        //     'Post-Doctorate'
+        // ];
         var underGradDorms = [
             'Smith Hall',
             'Johnson Towers',
