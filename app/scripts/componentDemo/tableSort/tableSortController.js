@@ -16,6 +16,35 @@ angular.module('mousethiefApp')
             'Zeta',
             'Eta'
         ];
+        var underGradmajors = [
+            'law',
+            ''
+        ];
+        var majors = {
+            undergrad: [
+                'biology',
+                'history',
+                'chemistry',
+                'physics',
+                'economics',
+                'english',
+                'computer science',
+                'pre-law',
+            ],
+            graduate: [
+                'law',
+                'medicine',
+                'business',
+                'chemistry',
+                'computer science',
+                'neuroscience'
+            ],
+            doctorate: [
+                'neuroscience',
+                'physics',
+                'chemistry',
+            ]
+        }
         var studentClass = [
             'Freshman',
             'Sophomore',
@@ -56,8 +85,16 @@ angular.module('mousethiefApp')
             return Math.random().toString(10).slice(-4);
         }
         var weights = [
-            0.025, 0.05, 0.075, 0.125, 0.175, 0.25, 0.225, 0.075
+            1, 2, 4, 6, 9, 12, 10, 5
         ];
+        var weightSum = 0;
+        var _m;
+        for (_m in weights) {
+            weightSum = weightSum + weights[_m];
+        }
+        for (_m in weights) {
+            weights[_m] = weights[_m] / weightSum;
+        }
 
 
 
@@ -114,17 +151,20 @@ angular.module('mousethiefApp')
                 }
                 letterGrade = letterGrade + 0.5;
             }
-            letterGrade = letterGrade.toFixed(2);
+            letterGrade = letterGrade.toFixed(20);
 
-            var dorm;
+            var dorm, major;
             if (studentClass[year] === 'Graduate Program') {
                 dorm = gradDorms[_.random(0, gradDorms.length - 1)];
+                major = majors.graduate[_.random(0, majors.graduate.length - 1)];
             }
             else if (studentClass[year] === 'Doctoral Candidate' || studentClass[year] === 'Post-Doctorate') {
                 dorm = postGradDorms[_.random(0, postGradDorms.length - 1)];
+                major = majors.doctorate[_.random(0, majors.doctorate.length - 1)];
             }
             else {
                 dorm = underGradDorms[_.random(0, underGradDorms.length - 1)];
+                major = majors.undergrad[_.random(0, majors.undergrad.length - 1)];
             }
 
             letter = nameTemplate[letter] + '-' + randStr();
@@ -149,15 +189,14 @@ angular.module('mousethiefApp')
                 }
             }
 
-            window.console.log(newSSN);
-
 
             $scope.data[_i] = {
                 userName: letter,
                 classYear: studentClass[year],
                 dorm: dorm,
                 gpa: gpa,
-                ssn: newSSN
+                ssn: newSSN,
+                major: major
             };
         }
     }]);
