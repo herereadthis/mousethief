@@ -41,7 +41,10 @@ angular.module('mousethiefApp')
                 'chemistry',
             ]
         }
-        var studentClass = {
+
+        // determine student's current year enrollment
+        var studentClass, _n;
+        studentClass = {
             bias: [3, 3, 3, 3, 4, 1, 1],
             name: [
                 'freshman',
@@ -55,8 +58,6 @@ angular.module('mousethiefApp')
             weightSum: 0,
             weightTotal: 0
         };
-        var _n;
-
         for (_n in studentClass.bias) {
             studentClass.weightSum = studentClass.weightSum + studentClass.bias[_n];
         }
@@ -64,26 +65,7 @@ angular.module('mousethiefApp')
             studentClass.bias[_n] = studentClass.bias[_n] / studentClass.weightSum;
             studentClass.weightTotal = studentClass.weightTotal + studentClass.bias[_n];
         }
-        // var studentClass = [
-        //     'Freshman',
-        //     'Sophomore',
-        //     'Junior',
-        //     'Senior',
-        //     'Freshman',
-        //     'Sophomore',
-        //     'Junior',
-        //     'Senior',
-        //     'Freshman',
-        //     'Sophomore',
-        //     'Junior',
-        //     'Senior',
-        //     'Graduate Program',
-        //     'Graduate Program',
-        //     'Graduate Program',
-        //     'Graduate Program',
-        //     'Doctoral Candidate',
-        //     'Post-Doctorate'
-        // ];
+
         var underGradDorms = [
             'Smith Hall',
             'Johnson Towers',
@@ -115,8 +97,6 @@ angular.module('mousethiefApp')
             weights[_m] = weights[_m] / weightSum;
         }
 
-
-
         var getSSN = function() {
             var zeroDiff, _j, _k, ssn, ssnString;
             ssn = [
@@ -146,12 +126,25 @@ angular.module('mousethiefApp')
         };
 
 
-        var foo = Math.random() * 0.5;
-        window.console.log(foo);
         $scope.data = [];
         for (_i = 0; _i < listSize; _i = _i + 1) {
             var letter = _.random(0, nameTemplate.length - 1);
-            var year = _.random(0, studentClass.length - 1);
+            // var year = _.random(0, studentClass.length - 1);
+            var year;
+
+            var setYear = Math.random();
+
+            var _o;
+            studentClass.weightSum = 0;
+
+            for (_o in studentClass.bias) {
+                studentClass.weightSum = studentClass.weightSum + studentClass.bias[_o];
+                if (setYear < studentClass.weightSum) {
+                    year = _o;
+                    window.console.log(year);
+                    break;
+                }
+            }
 
             var gradeBuff = Math.floor(Math.random() * 50) / 100;
             var setGrade = Math.random();
@@ -173,11 +166,11 @@ angular.module('mousethiefApp')
             letterGrade = letterGrade.toFixed(20);
 
             var dorm, major;
-            if (studentClass[year] === 'Graduate Program') {
+            if (studentClass.name[year] === 'graduate program') {
                 dorm = gradDorms[_.random(0, gradDorms.length - 1)];
                 major = majors.graduate[_.random(0, majors.graduate.length - 1)];
             }
-            else if (studentClass[year] === 'Doctoral Candidate' || studentClass[year] === 'Post-Doctorate') {
+            else if (studentClass.name[year] === 'doctoral candidate' || studentClass.name[year] === 'post-doctorate') {
                 dorm = postGradDorms[_.random(0, postGradDorms.length - 1)];
                 major = majors.doctorate[_.random(0, majors.doctorate.length - 1)];
             }
@@ -211,7 +204,7 @@ angular.module('mousethiefApp')
 
             $scope.data[_i] = {
                 userName: letter,
-                classYear: studentClass[year],
+                classYear: studentClass.name[year],
                 dorm: dorm,
                 gpa: gpa,
                 ssn: newSSN,
