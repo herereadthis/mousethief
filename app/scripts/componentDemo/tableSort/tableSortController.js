@@ -71,7 +71,8 @@ angular.module('mousethiefApp')
                 'post-doctorate'
             ],
             weightSum: 0,
-            weightTotal: 0
+            weightTotal: 0,
+            setYear: 0
         };
         for (_n in studentClass.bias) {
             studentClass.weightSum = studentClass.weightSum + studentClass.bias[_n];
@@ -84,6 +85,12 @@ angular.module('mousethiefApp')
         var listSize = 10;
         var _i;
 
+        var grades = {
+            weights: [
+                1, 2, 4, 6, 9, 12, 10, 5
+            ],
+            weightSum: 0
+        }
 
         var randStr = function() {
             return Math.random().toString(10).slice(-4);
@@ -131,26 +138,28 @@ angular.module('mousethiefApp')
 
         $scope.data = [];
         for (_i = 0; _i < listSize; _i = _i + 1) {
-            var letter = _.random(0, nameTemplate.length - 1);
-            // var year = _.random(0, studentClass.length - 1);
-            var year;
+            // first get the student's enrollment year ------------------------
+            var year, _o;
 
-            var setYear = Math.random();
-
-            var _o;
+            studentClass.setYear = Math.random();
             studentClass.weightSum = 0;
 
             for (_o in studentClass.bias) {
                 studentClass.weightSum = studentClass.weightSum + studentClass.bias[_o];
-                if (setYear < studentClass.weightSum) {
+                if (studenClass.setYear < studentClass.weightSum) {
                     year = _o;
-                    window.console.log(year);
                     break;
                 }
             }
 
+
+            var letter = _.random(0, nameTemplate.length - 1);
+
+            // generate a random floating number between 0 and 0.5
             var gradeBuff = Math.floor(Math.random() * 50) / 100;
             var setGrade = Math.random();
+
+
             var letterGrade = 0;
             var ssn = [];
 
