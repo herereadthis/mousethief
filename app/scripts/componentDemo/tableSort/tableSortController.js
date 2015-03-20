@@ -41,6 +41,21 @@ angular.module('mousethiefApp')
                 'chemistry',
             ]
         }
+        var dorms = {
+            undergrad: [
+                'Smith Hall',
+                'Johnson Towers',
+                'Jones Hall',
+                'Mayfield Hall'
+            ],
+            graduate: [
+                'Masters Building',
+                'Off Campus Housing'
+            ],
+            doctorate: [
+                'Off Campus Housing'
+            ]
+        }
 
         // determine student's current year enrollment
         var studentClass, _n;
@@ -66,21 +81,9 @@ angular.module('mousethiefApp')
             studentClass.weightTotal = studentClass.weightTotal + studentClass.bias[_n];
         }
 
-        var underGradDorms = [
-            'Smith Hall',
-            'Johnson Towers',
-            'Jones Hall',
-            'Mayfield Hall'
-        ];
-        var gradDorms = [
-            'Masters Building',
-            'Off Campus Housing'
-        ];
-        var postGradDorms = [
-            'Off Campus Housing'
-        ]
         var listSize = 10;
         var _i;
+
 
         var randStr = function() {
             return Math.random().toString(10).slice(-4);
@@ -167,15 +170,15 @@ angular.module('mousethiefApp')
 
             var dorm, major;
             if (studentClass.name[year] === 'graduate program') {
-                dorm = gradDorms[_.random(0, gradDorms.length - 1)];
+                dorm = dorms.graduate[_.random(0, dorms.graduate.length - 1)];
                 major = majors.graduate[_.random(0, majors.graduate.length - 1)];
             }
             else if (studentClass.name[year] === 'doctoral candidate' || studentClass.name[year] === 'post-doctorate') {
-                dorm = postGradDorms[_.random(0, postGradDorms.length - 1)];
+                dorm = dorms.doctorate[_.random(0, dorms.doctorate.length - 1)];
                 major = majors.doctorate[_.random(0, majors.doctorate.length - 1)];
             }
             else {
-                dorm = underGradDorms[_.random(0, underGradDorms.length - 1)];
+                dorm = dorms.undergrad[_.random(0, dorms.undergrad.length - 1)];
                 major = majors.undergrad[_.random(0, majors.undergrad.length - 1)];
             }
 
