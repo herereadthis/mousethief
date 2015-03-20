@@ -138,34 +138,32 @@ angular.module('mousethiefApp')
 
         $scope.data = [];
         for (_i = 0; _i < listSize; _i = _i + 1) {
+            var student;
+
+            student = {};
+
             // first get the student's enrollment year ------------------------
-            var year, _o;
+            var _o;
 
             studentClass.setYear = Math.random();
             studentClass.weightSum = 0;
 
             for (_o in studentClass.bias) {
                 studentClass.weightSum = studentClass.weightSum + studentClass.bias[_o];
-                if (studenClass.setYear < studentClass.weightSum) {
-                    year = _o;
+                if (studentClass.setYear < studentClass.weightSum) {
+                    student.year = _o;
                     break;
                 }
             }
 
 
-            var letter = _.random(0, nameTemplate.length - 1);
-
             // generate a random floating number between 0 and 0.5
             var gradeBuff = Math.floor(Math.random() * 50) / 100;
             var setGrade = Math.random();
-
-
             var letterGrade = 0;
-            var ssn = [];
-
             var _l, gradePoint, gpa;
 
-            gradePoint = 0
+            gradePoint = 0;
 
             for (_l in weights) {
                 gradePoint = gradePoint + weights[_l];
@@ -177,12 +175,20 @@ angular.module('mousethiefApp')
             }
             letterGrade = letterGrade.toFixed(20);
 
+
+            var ssn = [];
+
+
+
+
+            var letter = _.random(0, nameTemplate.length - 1);
+
             var dorm, major;
-            if (studentClass.name[year] === 'graduate program') {
+            if (studentClass.name[student.year] === 'graduate program') {
                 dorm = dorms.graduate[_.random(0, dorms.graduate.length - 1)];
                 major = majors.graduate[_.random(0, majors.graduate.length - 1)];
             }
-            else if (studentClass.name[year] === 'doctoral candidate' || studentClass.name[year] === 'post-doctorate') {
+            else if (studentClass.name[student.year] === 'doctoral candidate' || studentClass.name[student.year] === 'post-doctorate') {
                 dorm = dorms.doctorate[_.random(0, dorms.doctorate.length - 1)];
                 major = majors.doctorate[_.random(0, majors.doctorate.length - 1)];
             }
@@ -215,8 +221,9 @@ angular.module('mousethiefApp')
 
 
             $scope.data[_i] = {
+                id: _i,
                 userName: letter,
-                classYear: studentClass.name[year],
+                classYear: studentClass.name[student.year],
                 dorm: dorm,
                 gpa: gpa,
                 ssn: newSSN,
