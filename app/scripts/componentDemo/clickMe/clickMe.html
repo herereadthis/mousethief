@@ -1,0 +1,7 @@
+<section>
+    <button ng-show="mainAction != null" class="primary-action" ng-click="mainAction.action()">{{ mainAction.name }}</button>
+    <button class="secondary-action" ng-show="secondaryActions != null && secondaryActions.length == 1" ng-click="secondaryActions[0].action()">{{ secondaryActions[0].name }}</button>
+    <drop-down-menu
+            drop-down-menu-label="{{ label }}"
+            ng-show="secondaryActions != null && secondaryActions.length > 1" class="secondary-action" actions="secondaryActions" ></drop-down-menu>
+</section>
